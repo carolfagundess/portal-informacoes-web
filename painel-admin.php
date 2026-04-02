@@ -1,8 +1,6 @@
 <?php
 // Lógica no topo [cite: 251]
 include "funcoes-bd.php";
-$conn = conectar();
-$lista = listarRegistros($conn);
 ?>
 
 <!DOCTYPE html>
@@ -65,4 +63,4 @@ $lista = listarRegistros($conn);
 
 </body>
 </html>
-<?php desconectar($conn); ?>
+<php?>
