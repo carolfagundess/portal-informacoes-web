@@ -1,76 +1,47 @@
 <?php
+// Arquivo de funções tipadas [cite: 42]
 
-function conectar(): mysqli
-{
-
+function conectar(): mysqli {
     include "conexao-bd.php";
-
     $conexao = mysqli_connect($localServidor, $usuario, $senha, $nomeBaseDados);
-    //Verificando a Conexao com a Base de Dados
     if (!$conexao) {
         die("Conexão falhou: " . mysqli_connect_error());
     }
-
-    echo "Conectado com sucesso!";
-
     return $conexao;
 }
 
-function inserir(mysqli $conexao, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
-{
-    $comandoSQL = "insert into imc (nome,sobrenome,idade,peso,altura) values ('$nome', '$sobrenome', $idade, $peso, $altura)";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
-
-    echo "Adicionado com sucesso...:";
-    return $retornoBanco;
+// Função para registrar operações no log 
+function registrarLog(string $acao): void {
+    $arquivo = 'operacoes_bd.txt';
+    $dataHora = date('d/m/Y H:i:s');
+    $mensagem = "[$dataHora] Operação realizada: $acao" . PHP_EOL;
+    file_put_contents($arquivo, $mensagem, FILE_APPEND);
 }
 
-function excluir(mysqli $conexao,int $id)
-{
-    $comandoSQL = "DELETE from imc WHERE idpessoa = $id";
-    if (mysqli_query($conexao, $comandoSQL)) {
-        return true;
-    } else {
-        return false;
+function inserir(mysqli $conexao, string $nome, string $sobrenome, int $idade, float $weight, float $height): bool {
+    $sql = "INSERT INTO imc (nome, sobrenome, idade, peso, altura) VALUES ('$nome', '$sobrenome', $idade, $weight, $height)";
+    $resultado = mysqli_query($conexao, $sql);
+    if ($resultado) {
+        registrarLog("INSERIR - Pessoa: $nome $sobrenome"); [cite: 39]
     }
-
+    return $resultado;
 }
 
-function atualizar(mysqli $conexao, int $id, string $nome, string $sobrenome,int $idade, float $peso, float $altura)
-{
-    //UPDATE
-    $comandoSQL = "UPDATE imc SET nome ='$nome', sobrenome = '$sobrenome', idade = $idade, peso = $peso, altura = $altura WHERE idpessoa = $id" ;
-    if (mysqli_query($conexao, $comandoSQL)) {
-        return true;
-    } else {
-        return false;
+function excluir(mysqli $conexao, int $id): bool {
+    $sql = "DELETE FROM imc WHERE idpessoa = $id";
+    $resultado = mysqli_query($conexao, $sql);
+    if ($resultado) {
+        registrarLog("EXCLUIR - ID: $id"); [cite: 39]
     }
-
+    return $resultado;
 }
 
-function consultar(mysqli $conexao): void
-{
-    $comandoSQL = "SELECT * from imc";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
-
-    if (mysqli_num_rows($retornoBanco) > 0) {
-        echo 'ID - NOME - SOBRENOME - IDADE - PESO - ALTURA:<br>';
-        while ($registro = mysqli_fetch_array($retornoBanco)) {
-            echo $registro['idpessoa'] .
-                " " . $registro['nome'] .
-                " " . $registro['idade'] .
-                " " . $registro['altura'] .
-                " " . $registro['peso'] . "<br>";
-        }
-    } else {
-        echo "Nenhum resultado.";
-    }
-
-    return;
-
+// Função de consulta adaptada para retornar o objeto de resultados [cite: 57]
+function listarRegistros(mysqli $conexao): mysqli_result {
+    $sql = "SELECT * FROM imc";
+    return mysqli_query($conexao, $sql);
 }
 
-function desconectar($conexao)
-{
+function desconectar(mysqli $conexao): bool {
     return mysqli_close($conexao);
 }
