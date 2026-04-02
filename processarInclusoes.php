@@ -8,6 +8,6 @@ $auxNome = $_POST["indentificadorNome"];
 $auxSobrenome = $_POST["indentificadorSobrenome"];
 $auxIdade = $_POST["indentificadorIdade"];
 $auxPeso = $_POST["indentificadorPeso"];
-$auxAltura = $_POST["indentificadorAltura"];
+$auxAltura = $_POSTS["indentificadorAltura"];
 
 inserir($auxConexao, $auxNome, $auxSobrenome, $auxIdade, $auxPeso, $auxAltura);
