@@ -1,5 +1,5 @@
 <?php
-
+//FUNCOES TIPADAS 
 function conectar(): mysqli
 {
 

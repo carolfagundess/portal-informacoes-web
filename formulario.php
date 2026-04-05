@@ -17,47 +17,66 @@ $peso = $pessoaUrl['peso'] ?? "";
 $altura = $pessoaUrl['altura'] ?? "";
 
 $acao = $pessoaUrl ? "processarAlteracoes.php" : "processarInclusoes.php";
+
+include "html/cabecalho.php";
 ?>
-<html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white p-3">
+                <h4 class="mb-0 text-center fw-bold">Registro de Saúde IMC</h4>
+            </div>
 
-<body>
-    <form action="<?= $acao ?>" method="post">
+            <div class="card-body p-4 bg-white">
+                <form action="<?= $acao ?>" method="post">
 
-        <!-- SE TIVER UM ID, ESSE CAMPO INVISÍVEL ENVIA PARA O BANCO! -->
-        <?php if ($idUrl): ?>
-            <input type="hidden" name="id" value="<?= $idUrl ?>">
-        <?php endif; ?>
+                    <?php if ($idUrl): ?>
+                        <input type="hidden" name="id" value="<?= $idUrl ?>">
+                    <?php endif; ?>
 
-        <label>Nome:</label>
-        <input type="text" name="indentificadorNome" value="<?= $nome ?>">
-        <br>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">Nome:</label>
+                        <input type="text" class="form-control form-control-lg" name="indentificadorNome"
+                            value="<?= $nome ?>">
+                    </div>
 
-        <label>Sobrenome:</label>
-        <input type="text" name="indentificadorSobrenome" value="<?= $sobrenome ?>">
-        <br>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">Sobrenome:</label>
+                        <input type="text" class="form-control form-control-lg" name="indentificadorSobrenome"
+                            value="<?= $sobrenome ?>">
+                    </div>
 
-        <label>Idade:</label>
-        <input type="text" name="indentificadorIdade" value="<?= $idade ?>">
-        <br>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold text-secondary">Idade:</label>
+                        <input type="number" class="form-control form-control-lg" name="indentificadorIdade"
+                            value="<?= $idade ?>">
+                    </div>
 
-        <label>Peso:</label>
-        <input type="text" name="indentificadorPeso" value="<?= $peso ?>">
-        <br>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold text-secondary">Peso (kg):</label>
+                            <input type="text" class="form-control form-control-lg" name="indentificadorPeso"
+                                value="<?= $peso ?>" placeholder="Ex: 60.5">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold text-secondary">Altura (m):</label>
+                            <input type="text" class="form-control form-control-lg" name="indentificadorAltura"
+                                value="<?= $altura ?>" placeholder="Ex: 1.70">
+                        </div>
+                    </div>
 
-        <label>Altura:</label>
-        <input type="text" name="indentificadorAltura" value="<?= $altura ?>">
-        <br>
+                    <div class="d-grid mt-2">
+                        <button type="submit"
+                            class="btn <?= $idUrl ? 'btn-warning' : 'btn-primary' ?> btn-lg fw-bold shadow-sm">
+                            <?= $idUrl ? "Salvar Alterações" : "Gravar Registro" ?>
+                        </button>
+                    </div>
 
-        <input type="submit" value="<?= $idUrl ? "Alterar" : "Registrar" ?>">
-        <br>
-    </form>
-</body>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-</html>
+<?php include "html/rodape.php"; ?>
