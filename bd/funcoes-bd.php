@@ -19,6 +19,10 @@ function inserir(mysqli $conexao, string $nome, string $sobrenome, int $idade, f
     $comandoSQL = "insert into imc (nome,sobrenome,idade,peso,altura) values ('$nome', '$sobrenome', $idade, $peso, $altura)";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
 
+    if ($retornoBanco) {
+        registrarLog("Inclusão: Registro criado para {$nome} {$sobrenome}.");
+    }
+
     return $retornoBanco;
 }
 
@@ -26,6 +30,7 @@ function excluir(mysqli $conexao, int $id): bool
 {
     $comandoSQL = "DELETE from imc WHERE idpessoa = $id";
     if (mysqli_query($conexao, $comandoSQL)) {
+        registrarLog("Exclusão: Registro com ID {$id} foi excluído.");
         return true;
     } else {
         return false;
@@ -38,6 +43,7 @@ function atualizar(mysqli $conexao, int $id, string $nome, string $sobrenome, in
     //UPDATE
     $comandoSQL = "UPDATE imc SET nome ='$nome', sobrenome = '$sobrenome', idade = $idade, peso = $peso, altura = $altura WHERE idpessoa = $id";
     if (mysqli_query($conexao, $comandoSQL)) {
+        registrarLog("Atualização: Registro com ID {$id} atualizado para {$nome} {$sobrenome}.");
         return true;
     } else {
         return false;
@@ -97,4 +103,14 @@ function classificarIMC(float $imc): string
 function desconectar($conexao)
 {
     return mysqli_close($conexao);
+}
+
+function registrarLog(string $acao): void
+{
+    date_default_timezone_set('America/Sao_Paulo');
+
+    $arquivoLog = __DIR__ . '/../log_operacoes.txt';
+    $dataHora = date('d/m/Y H:i:s');
+    $mensagem = "[$dataHora] - Ação: $acao" . PHP_EOL;
+    file_put_contents($arquivoLog, $mensagem, FILE_APPEND);
 }

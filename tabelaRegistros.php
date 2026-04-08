@@ -8,7 +8,7 @@ include "html/cabecalho.php";
 
 <div class="card shadow-sm border-0 mb-5">
     <div class="card-body p-4 bg-white">
-        <h2 class="text-center mb-4 text-dark fw-bold">Gestão de Pacientes da OMS</h2>
+        <h2 class="text-center mb-4 text-dark fw-bold">Tabela de Pacientes da OMS</h2>
 
         <div class="table-responsive">
             <table class="table table-hover table-bordered table-striped align-middle">
@@ -37,13 +37,13 @@ include "html/cabecalho.php";
                                 <div class="d-flex justify-content-center gap-2">
                                     <a href="formulario.php?id=<?= $pessoa['idpessoa'] ?>"
                                         class="btn btn-warning btn-sm fw-semibold">
-                                        ✏️ Alterar
+                                        Alterar
                                     </a>
 
                                     <a href="processarExclusoes.php?id=<?= $pessoa['idpessoa'] ?>"
                                         class="btn btn-danger btn-sm fw-semibold"
                                         onclick="return confirm('Tem certeza que deseja excluir da base de dados?')">
-                                        🗑️ Excluir
+                                        Excluir
                                     </a>
                                 </div>
                             </td>
