@@ -15,14 +15,6 @@
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.php">OMS IFSul</a>
             <div class="collapse navbar-collapse d-flex">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="formulario.php">Cadastrar Novo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="painel-admin.php">Visualizar Registros</a>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>
