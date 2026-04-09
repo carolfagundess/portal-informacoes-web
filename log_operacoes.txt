@@ -1,0 +1,6 @@
+[08/04/2026 20:53:57] - Ação: Consulta: Listagem de todos os registros realizada. Total: 3 registro(s).
+[08/04/2026 20:54:01] - Ação: Exclusão: Registro com ID 8 foi excluído.
+[08/04/2026 20:54:19] - Ação: Inclusão: Registro criado para sofia gravina.
+[08/04/2026 20:54:25] - Ação: Consulta: Listagem de todos os registros realizada. Total: 3 registro(s).
+[08/04/2026 20:54:28] - Ação: Consulta: Registro com ID 9 consultado — sofia gravina.
+[08/04/2026 20:54:36] - Ação: Atualização: Registro com ID 9 atualizado para sofia gravina.

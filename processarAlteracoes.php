@@ -14,5 +14,5 @@ $auxAltura = (float) str_replace(',', '.', $_POST["indentificadorAltura"]);
 atualizar($auxConexao, $auxId, $auxNome, $auxSobrenome, $auxIdade, $auxPeso, $auxAltura);
 
 desconectar($auxConexao);
-header("Location: painel-admin.php");
+header("Location: painelAdmin.php");
 exit;

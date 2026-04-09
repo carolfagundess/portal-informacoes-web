@@ -9,5 +9,5 @@ $auxId = $_GET["id"];
 excluir($auxConexao, $auxId);
 
 desconectar($auxConexao);
-header("Location: painel-admin.php");
+header("Location: painelAdmin.php");
 exit;

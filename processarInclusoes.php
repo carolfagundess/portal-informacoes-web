@@ -13,5 +13,5 @@ $auxAltura = (float) str_replace(',', '.', $_POST["indentificadorAltura"]);
 
 inserir($auxConexao, $auxNome, $auxSobrenome, $auxIdade, $auxPeso, $auxAltura);
 desconectar($auxConexao);
-header("Location: painel-admin.php");
+header("Location: formulario.php");
 exit;
