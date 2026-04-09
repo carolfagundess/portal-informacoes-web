@@ -6,6 +6,7 @@ function conectar(): mysqli
     include "conexao-bd.php";
 
     $conexao = mysqli_connect($localServidor, $usuario, $senha, $nomeBaseDados);
+    //Verificando a Conexao com a Base de Dados
     if (!$conexao) {
         die("Conexão falhou: " . mysqli_connect_error());
     }
@@ -62,7 +63,7 @@ function consultar(mysqli $conexao): array
             $resultados[] = $registro;
         }
     }
-    registrarLog("Consulta: Listagem de todos os registros realizada. Total: " . count($resultados) . " registro(s).");
+
     return $resultados;
 }
 
@@ -72,14 +73,8 @@ function consultarPorId(mysqli $conexao, int $id): ?array
     $retornoBanco = mysqli_query($conexao, $comandoSQL);
 
     if (mysqli_num_rows($retornoBanco) > 0) {
-        $registro = mysqli_fetch_assoc($retornoBanco);
-
-        registrarLog("Consulta: Registro com ID {$id} consultado — {$registro['nome']} {$registro['sobrenome']}.");
-
-        return $registro;
+        return mysqli_fetch_assoc($retornoBanco);
     }
-
-    registrarLog("Consulta: Registro com ID {$id} não encontrado.");
     return null;
 }
 
@@ -191,6 +186,8 @@ function nomeMaior(mysqli $conexao): string
     return $registro['nome'] . " " . $registro['sobrenome'];
 
 }
+
+
 
 
 function menorIdade(mysqli $conexao): int
@@ -309,6 +306,7 @@ function quantidadeAbaixoMedia(mysqli $conexao): int
     return $quantidadeNomes;
 }
 
+
 function desconectar($conexao)
 {
     return mysqli_close($conexao);
@@ -321,9 +319,5 @@ function registrarLog(string $acao): void
     $arquivoLog = __DIR__ . '/../log_operacoes.txt';
     $dataHora = date('d/m/Y H:i:s');
     $mensagem = "[$dataHora] - Ação: $acao" . PHP_EOL;
-    $resultado = file_put_contents($arquivoLog, $mensagem, FILE_APPEND | LOCK_EX);
-
-    if ($resultado === false) {
-        error_log("FALHA ao gravar log: $mensagem");
-    }
+    file_put_contents($arquivoLog, $mensagem, FILE_APPEND);
 }
