@@ -188,8 +188,6 @@ function nomeMaior(mysqli $conexao): string
 }
 
 
-
-
 function menorIdade(mysqli $conexao): int
 {
 
@@ -306,6 +304,68 @@ function quantidadeAbaixoMedia(mysqli $conexao): int
     return $quantidadeNomes;
 }
 
+function maiorPeso(mysqli $conexao): float
+{
+    $comandoSQL = "SELECT MAX(peso) as maior_peso FROM imc";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+    $registro = mysqli_fetch_assoc($retornoBanco);
+    return $registro['maior_peso'] !== null ? (float) $registro['maior_peso'] : 0.0;
+}
+
+function menorPeso(mysqli $conexao): float
+{
+    $comandoSQL = "SELECT MIN(peso) as menor_peso FROM imc";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+    $registro = mysqli_fetch_assoc($retornoBanco);
+    return $registro['menor_peso'] !== null ? $registro['menor_peso'] : 0.0;
+}
+
+function pesoMedio(mysqli $conexao): float
+{
+    $comandoSQL = "SELECT AVG(peso) as peso_medio FROM imc";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+    $registro = mysqli_fetch_assoc($retornoBanco);
+    return $registro['peso_medio'] !== null ? $registro['peso_medio'] : 0.0;
+}
+
+function pessoasForaDoImcNormal(mysqli $conexao): array
+{
+    $dados = consultar($conexao);
+    $pessoasForaNormal = [];
+
+    foreach ($dados as $pessoa) {
+        $imc = calcularIMC($pessoa['peso'], $pessoa['altura']);
+        $classe = classificarIMC($imc);
+
+        if ($classe !== "Normal") {
+            $pesoAtual = $pessoa['peso'];
+            $altura = $pessoa['altura'];
+            $diferenca = 0;
+            $acao = "";
+
+            if ($imc <= 18.5) {
+                $pesoIdeal = 18.51 * ($altura * $altura);
+                $diferenca = $pesoIdeal - $pesoAtual;
+                $acao = "ganhar";
+            } else {
+                $pesoIdeal = 24.9 * ($altura * $altura);
+                $diferenca = $pesoAtual - $pesoIdeal;
+                $acao = "perder";
+            }
+
+            $pessoasForaNormal[] = [
+                'nome' => $pessoa['nome'] . " " . $pessoa['sobrenome'],
+                'peso_atual' => $pesoAtual,
+                'classificacao' => $classe,
+                'acao' => $acao,
+                'diferenca_quilos' => $diferenca,
+                'imc' => $imc
+            ];
+        }
+    }
+
+    return $pessoasForaNormal;
+}
 
 function desconectar($conexao)
 {

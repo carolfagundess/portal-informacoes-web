@@ -18,7 +18,7 @@ include "html/cabecalho.php";
             <a href="#" target="_blank"
                 class="btn btn-dark fw-bold fs-5 shadow-sm d-flex justify-content-center align-items-center">Dados
                 Idade</a>
-            <a href="#" target="_blank"
+            <a href="dadosPeso.php" target="_blank"
                 class="btn btn-dark fw-bold fs-5 shadow-sm d-flex justify-content-center align-items-center">Dados
                 Peso</a>
         </div>

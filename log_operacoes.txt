@@ -4,3 +4,9 @@
 [08/04/2026 20:54:25] - Ação: Consulta: Listagem de todos os registros realizada. Total: 3 registro(s).
 [08/04/2026 20:54:28] - Ação: Consulta: Registro com ID 9 consultado — sofia gravina.
 [08/04/2026 20:54:36] - Ação: Atualização: Registro com ID 9 atualizado para sofia gravina.
+[08/04/2026 22:00:20] - Ação: Inclusão: Registro criado para carol teste.
+[08/04/2026 22:00:22] - Ação: Inclusão: Registro criado para  .
+[08/04/2026 22:00:30] - Ação: Exclusão: Registro com ID 11 foi excluído.
+[08/04/2026 22:13:08] - Ação: Atualização: Registro com ID 1 atualizado para Carol Fagundes.
+[08/04/2026 22:31:44] - Ação: Inclusão: Registro criado para teste fora obesidade.
+[08/04/2026 22:32:12] - Ação: Inclusão: Registro criado para teste abaixo peso.
