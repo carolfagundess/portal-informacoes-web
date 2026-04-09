@@ -100,6 +100,203 @@ function classificarIMC(float $imc): string
         return "Obesidade III";
 }
 
+function percentual(mysqli $conexao): array {
+    $dados = consultar($conexao);
+
+    $total = count($dados);
+
+    if ($total == 0) {
+        return [];
+    }
+
+    $classificacoes = [
+        "Abaixo do peso" => 0,
+        "Normal" => 0,
+        "Sobrepeso" => 0,
+        "Obesidade I" => 0,
+        "Obesidade II" => 0,
+        "Obesidade III" => 0
+    ];
+
+    
+    for ($i = 0; $i < $total; $i++) {
+        $imc = calcularIMC($dados[$i]['peso'], $dados[$i]['altura']);
+        $classe = classificarIMC($imc);
+
+        $classificacoes[$classe]++;
+    }
+
+    $chaves = array_keys($classificacoes);
+    $qtdClasses = count($chaves);
+
+    for ($i = 0; $i < $qtdClasses; $i++) {
+        $classe = $chaves[$i];
+        $classificacoes[$classe] = ($classificacoes[$classe] / $total) * 100;
+    }
+
+    return $classificacoes;
+}
+function imcMedio(mysqli $conexao): float
+{
+    $dados = consultar($conexao);
+
+    $total = count($dados);
+
+    $totalIMC = count($dados);
+
+    for ($i = 0; $i < $total; $i++) {
+        $somaIMC += calcularIMC($dados[$i]['peso'], $dados[$i]['altura']);
+    }
+
+    return $totalIMC ? $somaIMC / $totalIMC : 0;
+}
+
+function maiorIdade(mysqli $conexao): int{
+
+    $comandoSQL = "SELECT * FROM imc";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+    $maiorIdade = 0;
+
+    while ($registro = mysqli_fetch_array($retornoBanco)) {
+        
+        $idadeAtual = $registro['idade'];
+
+        if ($idadeAtual > $maiorIdade) {
+            $maiorIdade = $idadeAtual;
+        }
+
+    }
+     
+    return $maiorIdade;
+
+}
+
+function nomeMaior(mysqli $conexao): string{
+        
+    $idadeMaior = maiorIdade($conexao); 
+
+    $comandoSQL = "SELECT nome, sobrenome FROM imc WHERE idade = $idadeMaior LIMIT 1";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+
+    $registro = mysqli_fetch_array($retornoBanco);
+     
+    return $registro['nome'] . " " . $registro['sobrenome'];
+     
+}
+
+
+
+
+function menorIdade(mysqli $conexao): int{
+
+    $comandoSQL = "SELECT * FROM imc";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+    $menorIdade = 999;
+
+    while ($registro = mysqli_fetch_array($retornoBanco)) {
+        
+        $idadeAtual = $registro['idade'];
+
+        if ($idadeAtual < $menorIdade) {
+            $menorIdade = $idadeAtual;
+        }
+
+    }
+     
+    return $menorIdade;
+
+}
+
+function menorAltura(mysqli $conexao): float {
+    $idadeMaisNova = menorNome($conexao); 
+
+    $comandoSQL = "SELECT altura FROM imc WHERE idade = $idadeMaisNova LIMIT 1";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+
+    $registro = mysqli_fetch_array($retornoBanco);
+    return $registro['altura'];
+}
+
+function menorNome(mysqli $conexao): string{
+
+    $idadeMaisNova = menorIdade($conexao); 
+
+    $comandoSQL = "SELECT nome, sobrenome FROM imc WHERE idade = $idadeMaisNova LIMIT 1";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+
+    $registro = mysqli_fetch_array($retornoBanco);
+     
+    return $registro['nome'] . " " . $registro['sobrenome'];
+
+}
+
+function idadeMedia(mysqli $conexao): float{
+
+    $dados = consultar($conexao);
+
+    $totalIdades = count($dados);
+    $somaIdades = 0;
+    $idadeMedia = 0;
+    
+
+    for ($i = 0; $i < $totalIdades; $i++) {
+        $somaIdades += $dados[$i]['idade'];
+
+    }
+
+    $idadeMedia = $totalIdades ? $somaIdades / $totalIdades : 0;
+
+    return $idadeMedia;
+}
+
+
+function nomesAcimaMedia (mysqli $conexao): array{
+
+    $mediaIdades = idadeMedia($conexao); 
+
+    $comandoSQL = "SELECT nome, sobrenome FROM imc WHERE idade > $mediaIdades";
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+
+    while($registro = mysqli_fetch_array($retornoBanco)){
+      $nomes[] = $registro['nome'] . " " . $registro['sobrenome'] . ", ";
+    }
+     
+    return $nomes;
+}
+
+function quantidadeAcimaMedia(mysqli $conexao): int{
+
+    $quantidadeNomes = 0;
+
+    $mediaIdades = idadeMedia($conexao); 
+    $comandoSQL = "SELECT id FROM imc WHERE idade > $mediaIdades";
+
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+
+     while($registro = mysqli_fetch_array($retornoBanco)){
+        $quantidadeNomes++;
+    }
+
+    return $quantidadeNomes;
+    }
+
+function quantidadeAbaixoMedia(mysqli $conexao):int{
+
+    $quantidadeNomes = 0;
+
+    $mediaIdades = idadeMedia($conexao); 
+    $comandoSQL = "SELECT id FROM imc WHERE idade < $mediaIdades";
+
+    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+
+     while($registro = mysqli_fetch_array($retornoBanco)){
+        $quantidadeNomes++;
+    }
+
+    return $quantidadeNomes;
+}
+
+
 function desconectar($conexao)
 {
     return mysqli_close($conexao);
