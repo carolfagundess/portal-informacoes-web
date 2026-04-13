@@ -2,66 +2,79 @@
 //FUNCOES TIPADAS 
 function conectar(): mysqli
 {
-
     include "conexao-bd.php";
 
     $conexao = mysqli_connect($localServidor, $usuario, $senha, $nomeBaseDados);
-    //Verificando a Conexao com a Base de Dados
+
     if (!$conexao) {
-        die("Conexão falhou: " . mysqli_connect_error());
+        registrarLog("ERRO - Conexão falhou: " . mysqli_connect_error());
+        die("Conexão falhou");
     }
 
+    registrarLog("SUCESSO - Conexão estabelecida");
     return $conexao;
 }
 
 function inserir(mysqli $conexao, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
 {
-    $comandoSQL = "insert into imc (nome,sobrenome,idade,peso,altura) values ('$nome', '$sobrenome', $idade, $peso, $altura)";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+    $comandoSQL = "INSERT INTO imc (nome, sobrenome, idade, peso, altura) 
+                   VALUES ('$nome', '$sobrenome', $idade, $peso, $altura)";
+
+    $retornoBanco = mysqli_query($conexao, $comandoSQL);
 
     if ($retornoBanco) {
-        registrarLog("Inclusão: Registro criado para {$nome} {$sobrenome}.");
+        registrarLog("SUCESSO - Inserção: {$nome} {$sobrenome}");
+        return true;
+    } else {
+        registrarLog("ERRO - Inserção: {$nome} {$sobrenome} | Erro: " . mysqli_error($conexao));
+        return false;
     }
-
-    return $retornoBanco;
 }
 
 function excluir(mysqli $conexao, int $id): bool
 {
-    $comandoSQL = "DELETE from imc WHERE idpessoa = $id";
+    $comandoSQL = "DELETE FROM imc WHERE idpessoa = $id";
+
     if (mysqli_query($conexao, $comandoSQL)) {
-        registrarLog("Exclusão: Registro com ID {$id} foi excluído.");
+        registrarLog("SUCESSO - Exclusão ID {$id}");
         return true;
     } else {
+        registrarLog("ERRO - Exclusão ID {$id} | Erro: " . mysqli_error($conexao));
         return false;
     }
-
 }
 
 function atualizar(mysqli $conexao, int $id, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
 {
-    //UPDATE
-    $comandoSQL = "UPDATE imc SET nome ='$nome', sobrenome = '$sobrenome', idade = $idade, peso = $peso, altura = $altura WHERE idpessoa = $id";
+    $comandoSQL = "UPDATE imc 
+                   SET nome='$nome', sobrenome='$sobrenome', idade=$idade, peso=$peso, altura=$altura 
+                   WHERE idpessoa=$id";
+
     if (mysqli_query($conexao, $comandoSQL)) {
-        registrarLog("Atualização: Registro com ID {$id} atualizado para {$nome} {$sobrenome}.");
+        registrarLog("SUCESSO - Atualização ID {$id}");
         return true;
     } else {
+        registrarLog("ERRO - Atualização ID {$id} | Erro: " . mysqli_error($conexao));
         return false;
     }
-
 }
 
 function consultar(mysqli $conexao): array
 {
     $comandoSQL = "SELECT * FROM imc";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
+    $retornoBanco = mysqli_query($conexao, $comandoSQL);
+
+    if (!$retornoBanco) {
+        registrarLog("ERRO - Consulta geral | Erro: " . mysqli_error($conexao));
+        return [];
+    }
+
+    registrarLog("SUCESSO - Consulta geral executada");
 
     $resultados = [];
 
-    if (mysqli_num_rows($retornoBanco) > 0) {
-        while ($registro = mysqli_fetch_assoc($retornoBanco)) {
-            $resultados[] = $registro;
-        }
+    while ($registro = mysqli_fetch_assoc($retornoBanco)) {
+        $resultados[] = $registro;
     }
 
     return $resultados;
@@ -72,31 +85,42 @@ function consultarPorId(mysqli $conexao, int $id): ?array
     $comandoSQL = "SELECT * FROM imc WHERE idpessoa = $id";
     $retornoBanco = mysqli_query($conexao, $comandoSQL);
 
-    if (mysqli_num_rows($retornoBanco) > 0) {
-        return mysqli_fetch_assoc($retornoBanco);
+    if (!$retornoBanco) {
+        registrarLog("ERRO - Consulta ID {$id} | Erro: " . mysqli_error($conexao));
+        return null;
     }
-    return null;
-}
 
+    registrarLog("SUCESSO - Consulta ID {$id}");
+
+    return mysqli_num_rows($retornoBanco) > 0 ? mysqli_fetch_assoc($retornoBanco) : null;
+}
 
 function calcularIMC(float $peso, float $altura): float
 {
-    return $peso / ($altura * $altura);
+    $imc = $peso / ($altura * $altura);
+    registrarLog("Cálculo IMC realizado: {$imc}");
+    return $imc;
 }
 
 function classificarIMC(float $imc): string
 {
     if ($imc <= 18.5)
+        registrarLog("Classificação IMC: Abaixo do peso");
         return "Abaixo do peso";
     elseif ($imc <= 24.9)
+        registrarLog("Classificação IMC: Peso normal");
         return "Normal";
     elseif ($imc <= 29.9)
+        registrarLog("Classificação IMC: Sobrepeso");
         return "Sobrepeso";
     elseif ($imc <= 34.9)
+        registrarLog("Classificação IMC: Obesidade I");
         return "Obesidade I";
     elseif ($imc <= 39.9)
+        registrarLog("Classificação IMC: Obesidade II");
         return "Obesidade II";
     else
+        registrarLog("Classificação IMC: Obesidade III");
         return "Obesidade III";
 }
 
@@ -135,6 +159,7 @@ function percentual(mysqli $conexao): array
         $classificacoes[$classe] = ($classificacoes[$classe] / $total) * 100;
     }
 
+    registrarLog("Percentual de IMC calculado");
     return $classificacoes;
 }
 function imcMedio(mysqli $conexao): float
@@ -145,11 +170,15 @@ function imcMedio(mysqli $conexao): float
 
     $totalIMC = count($dados);
 
+    $somaIMC = 0;
+
     for ($i = 0; $i < $total; $i++) {
         $somaIMC += calcularIMC($dados[$i]['peso'], $dados[$i]['altura']);
     }
 
-    return $totalIMC ? $somaIMC / $totalIMC : 0;
+    $resultado = $totalIMC ? $somaIMC / $totalIMC : 0;
+    registrarLog("IMC médio calculado: {$resultado}");
+    return $resultado;
 }
 
 function maiorIdade(mysqli $conexao): int
@@ -169,8 +198,8 @@ function maiorIdade(mysqli $conexao): int
 
     }
 
+    registrarLog("Maior idade encontrada: {$maiorIdade}");
     return $maiorIdade;
-
 }
 
 function nomeMaior(mysqli $conexao): string
@@ -183,7 +212,9 @@ function nomeMaior(mysqli $conexao): string
 
     $registro = mysqli_fetch_array($retornoBanco);
 
-    return $registro['nome'] . " " . $registro['sobrenome'];
+    $nome = $registro['nome'] . " " . $registro['sobrenome'];
+    registrarLog("Nome com maior idade: {$nome}");
+    return $nome;
 
 }
 
@@ -205,18 +236,20 @@ function menorIdade(mysqli $conexao): int
 
     }
 
+    registrarLog("Menor idade encontrada: {$menorIdade}");
     return $menorIdade;
 
 }
 
 function menorAltura(mysqli $conexao): float
 {
-    $idadeMaisNova = menorNome($conexao);
+    $idadeMaisNova = menorIdade($conexao);
 
     $comandoSQL = "SELECT altura FROM imc WHERE idade = $idadeMaisNova LIMIT 1";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
 
     $registro = mysqli_fetch_array($retornoBanco);
+    registrarLog("Menor altura encontrada: {$registro['altura']}");
     return $registro['altura'];
 }
 
@@ -230,7 +263,9 @@ function menorNome(mysqli $conexao): string
 
     $registro = mysqli_fetch_array($retornoBanco);
 
-    return $registro['nome'] . " " . $registro['sobrenome'];
+    $nome = $registro['nome'] . " " . $registro['sobrenome'];
+    registrarLog("Nome com menor idade: {$nome}");
+    return $nome;
 
 }
 
@@ -251,6 +286,7 @@ function idadeMedia(mysqli $conexao): float
 
     $idadeMedia = $totalIdades ? $somaIdades / $totalIdades : 0;
 
+    registrarLog("Idade média calculada: {$idadeMedia}");
     return $idadeMedia;
 }
 
@@ -259,6 +295,7 @@ function nomesAcimaMedia(mysqli $conexao): array
 {
 
     $mediaIdades = idadeMedia($conexao);
+    $nomes = [];
 
     $comandoSQL = "SELECT nome, sobrenome FROM imc WHERE idade > $mediaIdades";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
@@ -267,6 +304,7 @@ function nomesAcimaMedia(mysqli $conexao): array
         $nomes[] = $registro['nome'] . " " . $registro['sobrenome'] . ", ";
     }
 
+    registrarLog("Busca de nomes acima da média realizada");
     return $nomes;
 }
 
@@ -276,7 +314,7 @@ function quantidadeAcimaMedia(mysqli $conexao): int
     $quantidadeNomes = 0;
 
     $mediaIdades = idadeMedia($conexao);
-    $comandoSQL = "SELECT id FROM imc WHERE idade > $mediaIdades";
+    $comandoSQL = "SELECT idpessoa FROM imc WHERE idade > $mediaIdades";
 
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
 
@@ -284,6 +322,7 @@ function quantidadeAcimaMedia(mysqli $conexao): int
         $quantidadeNomes++;
     }
 
+    registrarLog("Quantidade acima da média: {$quantidadeNomes}");
     return $quantidadeNomes;
 }
 
@@ -293,7 +332,7 @@ function quantidadeAbaixoMedia(mysqli $conexao): int
     $quantidadeNomes = 0;
 
     $mediaIdades = idadeMedia($conexao);
-    $comandoSQL = "SELECT id FROM imc WHERE idade < $mediaIdades";
+    $comandoSQL = "SELECT idpessoa FROM imc WHERE idade < $mediaIdades";
 
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
 
@@ -301,6 +340,7 @@ function quantidadeAbaixoMedia(mysqli $conexao): int
         $quantidadeNomes++;
     }
 
+    registrarLog("Quantidade abaixo da média: {$quantidadeNomes}");
     return $quantidadeNomes;
 }
 
@@ -309,6 +349,7 @@ function maiorPeso(mysqli $conexao): float
     $comandoSQL = "SELECT MAX(peso) as maior_peso FROM imc";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
     $registro = mysqli_fetch_assoc($retornoBanco);
+    registrarLog("Maior peso: {$registro['maior_peso']}");
     return $registro['maior_peso'] !== null ? (float) $registro['maior_peso'] : 0.0;
 }
 
@@ -317,6 +358,7 @@ function menorPeso(mysqli $conexao): float
     $comandoSQL = "SELECT MIN(peso) as menor_peso FROM imc";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
     $registro = mysqli_fetch_assoc($retornoBanco);
+    registrarLog("Menor peso: {$registro['menor_peso']}");
     return $registro['menor_peso'] !== null ? $registro['menor_peso'] : 0.0;
 }
 
@@ -325,6 +367,7 @@ function pesoMedio(mysqli $conexao): float
     $comandoSQL = "SELECT AVG(peso) as peso_medio FROM imc";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
     $registro = mysqli_fetch_assoc($retornoBanco);
+    registrarLog("Peso médio: {$registro['peso_medio']}");
     return $registro['peso_medio'] !== null ? $registro['peso_medio'] : 0.0;
 }
 
@@ -364,11 +407,62 @@ function pessoasForaDoImcNormal(mysqli $conexao): array
         }
     }
 
+    registrarLog("Lista de pessoas fora do IMC normal gerada");
     return $pessoasForaNormal;
+}
+
+function tresMaioresIdades(mysqli $conexao): array
+{
+    $dados = consultar($conexao);
+
+    usort($dados, function ($a, $b) {
+        return $b['idade'] <=> $a['idade'];
+    });
+
+    $resultado = [];
+
+    for ($i = 0; $i < min(3, count($dados)); $i++) {
+        $imc = calcularIMC($dados[$i]['peso'], $dados[$i]['altura']);
+
+        $resultado[] = [
+            'nome' => $dados[$i]['nome'] . " " . $dados[$i]['sobrenome'],
+            'idade' => $dados[$i]['idade'],
+            'imc' => round($imc, 2)
+        ];
+    }
+
+    registrarLog("Top 3 maiores idades gerado");
+    return $resultado;
+}
+
+function cincoMenoresIdades(mysqli $conexao): array
+{
+    $dados = consultar($conexao);
+
+    usort($dados, function ($a, $b) {
+        return $a['idade'] <=> $b['idade'];
+    });
+
+    $resultado = [];
+
+    for ($i = 0; $i < min(5, count($dados)); $i++) {
+        $imc = calcularIMC($dados[$i]['peso'], $dados[$i]['altura']);
+
+        $resultado[] = [
+            'nome' => $dados[$i]['nome'] . " " . $dados[$i]['sobrenome'],
+            'idade' => $dados[$i]['idade'],
+            'imc' => round($imc, 2)
+        ];
+    }
+
+    registrarLog("Top 5 menores idades gerado");
+    return $resultado;
 }
 
 function desconectar($conexao)
 {
+    registrarLog("Conexão encerrada");
+
     return mysqli_close($conexao);
 }
 
