@@ -104,24 +104,25 @@ function calcularIMC(float $peso, float $altura): float
 
 function classificarIMC(float $imc): string
 {
-    if ($imc <= 18.5)
+    if ($imc <= 18.5) {
         registrarLog("Classificação IMC: Abaixo do peso");
         return "Abaixo do peso";
-    elseif ($imc <= 24.9)
+    } elseif ($imc <= 24.9) {
         registrarLog("Classificação IMC: Peso normal");
         return "Normal";
-    elseif ($imc <= 29.9)
+    } elseif ($imc <= 29.9) {
         registrarLog("Classificação IMC: Sobrepeso");
         return "Sobrepeso";
-    elseif ($imc <= 34.9)
+    } elseif ($imc <= 34.9) {
         registrarLog("Classificação IMC: Obesidade I");
         return "Obesidade I";
-    elseif ($imc <= 39.9)
+    } elseif ($imc <= 39.9) {
         registrarLog("Classificação IMC: Obesidade II");
         return "Obesidade II";
-    else
+    } else {
         registrarLog("Classificação IMC: Obesidade III");
         return "Obesidade III";
+    }
 }
 
 function percentual(mysqli $conexao): array
