@@ -40,7 +40,7 @@ include "html/cabecalho.php";
                                         Alterar
                                     </a>
 
-                                    <a href="processarExclusoes.php?id=<?= $pessoa['idpessoa'] ?>"
+                                    <a href="processamento-de-dados/processarExclusoes.php?id=<?= $pessoa['idpessoa'] ?>"
                                         class="btn btn-danger btn-sm fw-semibold"
                                         onclick="return confirm('Tem certeza que deseja excluir da base de dados?')">
                                         Excluir

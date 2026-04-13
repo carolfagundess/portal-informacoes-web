@@ -1,6 +1,6 @@
 <?php
 
-include "bd/funcoes-bd.php";
+include "../bd/funcoes-bd.php";
 
 $auxConexao = conectar();
 
@@ -14,5 +14,5 @@ $auxAltura = (float) str_replace(',', '.', $_POST["indentificadorAltura"]);
 atualizar($auxConexao, $auxId, $auxNome, $auxSobrenome, $auxIdade, $auxPeso, $auxAltura);
 
 desconectar($auxConexao);
-header("Location: painelAdmin.php");
+header("Location: ../painelAdmin.php");
 exit;

@@ -460,6 +460,28 @@ function cincoMenoresIdades(mysqli $conexao): array
     return $resultado;
 }
 
+function imcTodosParticipantes(mysqli $conexao): array
+{
+    $dados = consultar($conexao);
+    $resultado = [];
+
+    foreach ($dados as $pessoa) {
+        $imc = calcularIMC($pessoa['peso'], $pessoa['altura']);
+        
+        $resultado[] = [
+            'nome' => $pessoa['nome'] . " " . $pessoa['sobrenome'],
+            'idade' => $pessoa['idade'],
+            'peso' => $pessoa['peso'],
+            'altura' => $pessoa['altura'],
+            'imc' => round($imc, 2),
+            'classificacao' => classificarIMC($imc)
+        ];
+    }
+
+    registrarLog("Lista de IMC de todos os participantes gerada");
+    return $resultado;
+}
+
 function desconectar($conexao)
 {
     registrarLog("Conexão encerrada");

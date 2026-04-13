@@ -1,6 +1,6 @@
 <?php
 
-include "bd/funcoes-bd.php";
+include "../bd/funcoes-bd.php";
 
 $auxConexao = conectar();
 
@@ -13,5 +13,5 @@ $auxAltura = (float) str_replace(',', '.', $_POST["indentificadorAltura"]);
 
 inserir($auxConexao, $auxNome, $auxSobrenome, $auxIdade, $auxPeso, $auxAltura);
 desconectar($auxConexao);
-header("Location: formulario.php");
+header("Location: ../formulario.php");
 exit;

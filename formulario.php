@@ -16,7 +16,7 @@ $idade = $pessoaUrl['idade'] ?? "";
 $peso = $pessoaUrl['peso'] ?? "";
 $altura = $pessoaUrl['altura'] ?? "";
 
-$acao = $pessoaUrl ? "processarAlteracoes.php" : "processarInclusoes.php";
+$acao = $pessoaUrl ? "processamento-de-dados/processarAlteracoes.php" : "processamento-de-dados/processarInclusoes.php";
 
 include "html/cabecalho.php";
 ?>

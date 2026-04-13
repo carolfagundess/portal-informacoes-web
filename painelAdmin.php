@@ -12,10 +12,10 @@ include "html/cabecalho.php";
             <a href="tabelaRegistros.php" target="_blank"
                 class="btn btn-dark fw-bold fs-5 shadow-sm d-flex justify-content-center align-items-center">Visualizar
                 Registros</a>
-            <a href="#" target="_blank"
+            <a href="dadosImc.php" target="_blank"
                 class="btn btn-dark fw-bold fs-5 shadow-sm d-flex justify-content-center align-items-center">Dados
                 IMC</a>
-            <a href="#" target="_blank"
+            <a href="dadosIdade.php" target="_blank"
                 class="btn btn-dark fw-bold fs-5 shadow-sm d-flex justify-content-center align-items-center">Dados
                 Idade</a>
             <a href="dadosPeso.php" target="_blank"

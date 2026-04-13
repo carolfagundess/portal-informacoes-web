@@ -1,0 +1,89 @@
+[08/04/2026 20:53:57] - Ação: Consulta: Listagem de todos os registros realizada. Total: 3 registro(s).
+[08/04/2026 20:54:01] - Ação: Exclusão: Registro com ID 8 foi excluído.
+[08/04/2026 20:54:19] - Ação: Inclusão: Registro criado para sofia gravina.
+[08/04/2026 20:54:25] - Ação: Consulta: Listagem de todos os registros realizada. Total: 3 registro(s).
+[08/04/2026 20:54:28] - Ação: Consulta: Registro com ID 9 consultado — sofia gravina.
+[08/04/2026 20:54:36] - Ação: Atualização: Registro com ID 9 atualizado para sofia gravina.
+[08/04/2026 22:00:20] - Ação: Inclusão: Registro criado para carol teste.
+[08/04/2026 22:00:22] - Ação: Inclusão: Registro criado para  .
+[08/04/2026 22:00:30] - Ação: Exclusão: Registro com ID 11 foi excluído.
+[08/04/2026 22:13:08] - Ação: Atualização: Registro com ID 1 atualizado para Carol Fagundes.
+[08/04/2026 22:31:44] - Ação: Inclusão: Registro criado para teste fora obesidade.
+[08/04/2026 22:32:12] - Ação: Inclusão: Registro criado para teste abaixo peso.
+[13/04/2026 15:16:05] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:16:08] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:16:08] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:16:12] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:16:12] - Ação: SUCESSO - Exclusão ID 9
+[13/04/2026 15:16:12] - Ação: Conexão encerrada
+[13/04/2026 15:16:12] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:16:14] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:16:14] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:16:22] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:16:22] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:17:02] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:17:02] - Ação: SUCESSO - Exclusão ID 10
+[13/04/2026 15:17:02] - Ação: Conexão encerrada
+[13/04/2026 15:17:02] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:17:04] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:17:04] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:17:19] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:17:19] - Ação: SUCESSO - Exclusão ID 6
+[13/04/2026 15:17:19] - Ação: Conexão encerrada
+[13/04/2026 15:17:19] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:17:20] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:17:20] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:25:40] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:25:40] - Ação: Maior peso: 120
+[13/04/2026 15:25:40] - Ação: Menor peso: 30
+[13/04/2026 15:25:40] - Ação: Peso médio: 69.66666666666667
+[13/04/2026 15:25:40] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:25:40] - Ação: Cálculo IMC realizado: 20.415224913495
+[13/04/2026 15:25:40] - Ação: Classificação IMC: Peso normal
+[13/04/2026 15:25:40] - Ação: Cálculo IMC realizado: 43.547684714763
+[13/04/2026 15:25:40] - Ação: Classificação IMC: Obesidade III
+[13/04/2026 15:25:40] - Ação: Cálculo IMC realizado: 7.5
+[13/04/2026 15:25:40] - Ação: Classificação IMC: Abaixo do peso
+[13/04/2026 15:25:40] - Ação: Lista de pessoas fora do IMC normal gerada
+[13/04/2026 15:25:40] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:25:40] - Ação: Cálculo IMC realizado: 20.415224913495
+[13/04/2026 15:25:40] - Ação: Cálculo IMC realizado: 43.547684714763
+[13/04/2026 15:25:40] - Ação: Cálculo IMC realizado: 7.5
+[13/04/2026 15:25:40] - Ação: Top 3 maiores idades gerado
+[13/04/2026 15:25:40] - Ação: Conexão encerrada
+[13/04/2026 15:26:13] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:26:13] - Ação: Maior peso: 120
+[13/04/2026 15:26:13] - Ação: Menor peso: 30
+[13/04/2026 15:26:13] - Ação: Peso médio: 69.66666666666667
+[13/04/2026 15:26:13] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:26:13] - Ação: Cálculo IMC realizado: 20.415224913495
+[13/04/2026 15:26:13] - Ação: Classificação IMC: Peso normal
+[13/04/2026 15:26:13] - Ação: Cálculo IMC realizado: 43.547684714763
+[13/04/2026 15:26:13] - Ação: Classificação IMC: Obesidade III
+[13/04/2026 15:26:13] - Ação: Cálculo IMC realizado: 7.5
+[13/04/2026 15:26:13] - Ação: Classificação IMC: Abaixo do peso
+[13/04/2026 15:26:13] - Ação: Lista de pessoas fora do IMC normal gerada
+[13/04/2026 15:26:13] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:26:13] - Ação: Cálculo IMC realizado: 20.415224913495
+[13/04/2026 15:26:13] - Ação: Cálculo IMC realizado: 43.547684714763
+[13/04/2026 15:26:13] - Ação: Cálculo IMC realizado: 7.5
+[13/04/2026 15:26:13] - Ação: Top 3 maiores idades gerado
+[13/04/2026 15:26:13] - Ação: Conexão encerrada
+[13/04/2026 15:27:53] - Ação: SUCESSO - Conexão estabelecida
+[13/04/2026 15:27:53] - Ação: Maior peso: 120
+[13/04/2026 15:27:53] - Ação: Menor peso: 30
+[13/04/2026 15:27:53] - Ação: Peso médio: 69.66666666666667
+[13/04/2026 15:27:53] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:27:53] - Ação: Cálculo IMC realizado: 20.415224913495
+[13/04/2026 15:27:53] - Ação: Classificação IMC: Peso normal
+[13/04/2026 15:27:53] - Ação: Cálculo IMC realizado: 43.547684714763
+[13/04/2026 15:27:53] - Ação: Classificação IMC: Obesidade III
+[13/04/2026 15:27:53] - Ação: Cálculo IMC realizado: 7.5
+[13/04/2026 15:27:53] - Ação: Classificação IMC: Abaixo do peso
+[13/04/2026 15:27:53] - Ação: Lista de pessoas fora do IMC normal gerada
+[13/04/2026 15:27:53] - Ação: SUCESSO - Consulta geral executada
+[13/04/2026 15:27:53] - Ação: Cálculo IMC realizado: 20.415224913495
+[13/04/2026 15:27:53] - Ação: Cálculo IMC realizado: 43.547684714763
+[13/04/2026 15:27:53] - Ação: Cálculo IMC realizado: 7.5
+[13/04/2026 15:27:53] - Ação: Top 3 maiores idades gerado
+[13/04/2026 15:27:53] - Ação: Conexão encerrada
