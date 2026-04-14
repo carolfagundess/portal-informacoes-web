@@ -1,374 +1,147 @@
-[13/04/2026 15:30:47] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:30:47] - Ação: Maior peso: 120
-[13/04/2026 15:30:47] - Ação: Menor peso: 30
-[13/04/2026 15:30:47] - Ação: Peso médio: 69.66666666666667
-[13/04/2026 15:30:47] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:30:47] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:30:47] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:30:47] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:30:47] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:30:47] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:30:47] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:30:47] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:30:47] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:30:47] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:30:47] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:30:47] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:30:47] - Ação: Top 3 maiores idades gerado
-[13/04/2026 15:30:47] - Ação: Conexão encerrada
-[13/04/2026 15:37:24] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:37:24] - Ação: SUCESSO - Inserção: teste pessoa velha
-[13/04/2026 15:37:24] - Ação: Conexão encerrada
-[13/04/2026 15:37:29] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:37:29] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:37:48] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:37:48] - Ação: SUCESSO - Inserção: teste  pessoa velha2
-[13/04/2026 15:37:48] - Ação: Conexão encerrada
-[13/04/2026 15:37:51] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:37:51] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:37:53] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:37:53] - Ação: Maior peso: 120
-[13/04/2026 15:37:53] - Ação: Menor peso: 30
-[13/04/2026 15:37:53] - Ação: Peso médio: 67.1
-[13/04/2026 15:37:53] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:37:53] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:37:53] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:37:53] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:37:53] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:37:53] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:37:53] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:37:53] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:37:53] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:37:53] - Ação: Top 3 maiores idades gerado
-[13/04/2026 15:37:53] - Ação: Conexão encerrada
-[13/04/2026 15:38:58] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:40:34] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:40:34] - Ação: Maior peso: 120
-[13/04/2026 15:40:34] - Ação: Menor peso: 30
-[13/04/2026 15:40:34] - Ação: Peso médio: 67.1
-[13/04/2026 15:40:34] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:40:34] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:40:34] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:40:34] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:40:34] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:40:34] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:40:34] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:40:34] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:40:34] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:40:34] - Ação: Top 3 maiores idades gerado
-[13/04/2026 15:40:34] - Ação: Conexão encerrada
-[13/04/2026 15:42:35] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:42:35] - Ação: Maior peso: 120
-[13/04/2026 15:42:35] - Ação: Menor peso: 30
-[13/04/2026 15:42:35] - Ação: Peso médio: 67.1
-[13/04/2026 15:42:35] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:35] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:42:35] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:42:35] - Ação: Top 3 maiores idades gerado
-[13/04/2026 15:42:35] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:35] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:42:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:35] - Ação: Lista de IMC de todos os participantes gerada
-[13/04/2026 15:42:35] - Ação: Conexão encerrada
-[13/04/2026 15:42:49] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:42:49] - Ação: Maior peso: 120
-[13/04/2026 15:42:49] - Ação: Menor peso: 30
-[13/04/2026 15:42:49] - Ação: Peso médio: 67.1
-[13/04/2026 15:42:49] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:42:49] - Ação: Cálculo IMC realizado: 20.415224913495
-[13/04/2026 15:42:49] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:49] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:42:49] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:42:49] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:42:49] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:42:49] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:42:49] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:49] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:42:49] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:42:49] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:42:49] - Ação: Conexão encerrada
-[13/04/2026 15:43:24] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:04] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:04] - Ação: SUCESSO - Exclusão ID 1
-[13/04/2026 15:49:04] - Ação: Conexão encerrada
-[13/04/2026 15:49:04] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:05] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:05] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:49:15] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:15] - Ação: SUCESSO - Consulta ID 12
-[13/04/2026 15:49:15] - Ação: Conexão encerrada
-[13/04/2026 15:49:19] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:19] - Ação: SUCESSO - Atualização ID 12
-[13/04/2026 15:49:19] - Ação: Conexão encerrada
-[13/04/2026 15:49:19] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:30] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:30] - Ação: Maior peso: 120
-[13/04/2026 15:49:30] - Ação: Menor peso: 30
-[13/04/2026 15:49:30] - Ação: Peso médio: 69.125
-[13/04/2026 15:49:30] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:30] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:49:30] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:49:30] - Ação: Top 3 maiores idades gerado
-[13/04/2026 15:49:30] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:30] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:49:30] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:30] - Ação: Lista de IMC de todos os participantes gerada
-[13/04/2026 15:49:30] - Ação: Conexão encerrada
-[13/04/2026 15:49:41] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:49:42] - Ação: Maior peso: 120
-[13/04/2026 15:49:42] - Ação: Menor peso: 30
-[13/04/2026 15:49:42] - Ação: Peso médio: 69.125
-[13/04/2026 15:49:42] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:42] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:49:42] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:49:42] - Ação: Top 3 maiores idades gerado
-[13/04/2026 15:49:42] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:42] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:49:42] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:49:42] - Ação: Lista de IMC de todos os participantes gerada
-[13/04/2026 15:49:42] - Ação: Conexão encerrada
-[13/04/2026 15:53:36] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:53:36] - Ação: IMC médio calculado: 24.238550587894
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:53:36] - Ação: Percentual de IMC calculado
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:53:36] - Ação: Lista de IMC de todos os participantes gerada
-[13/04/2026 15:53:36] - Ação: Maior idade encontrada: 70
-[13/04/2026 15:53:36] - Ação: Maior idade encontrada: 70
-[13/04/2026 15:53:36] - Ação: Nome com maior idade: teste pessoa velha
-[13/04/2026 15:53:36] - Ação: Menor idade encontrada: 18
-[13/04/2026 15:53:36] - Ação: Menor idade encontrada: 18
-[13/04/2026 15:53:36] - Ação: Nome com menor idade: teste fora obesidade
-[13/04/2026 15:53:36] - Ação: Menor idade encontrada: 18
-[13/04/2026 15:53:36] - Ação: Menor altura encontrada: 1.66
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Idade média calculada: 43.5
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Idade média calculada: 43.5
-[13/04/2026 15:53:36] - Ação: Quantidade acima da média: 2
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Idade média calculada: 43.5
-[13/04/2026 15:53:36] - Ação: Quantidade abaixo da média: 2
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Idade média calculada: 43.5
-[13/04/2026 15:53:36] - Ação: Busca de nomes acima da média realizada
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:53:36] - Ação: Top 3 maiores idades gerado
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:53:36] - Ação: Top 5 menores idades gerado
-[13/04/2026 15:53:36] - Ação: Maior peso: 120
-[13/04/2026 15:53:36] - Ação: Menor peso: 30
-[13/04/2026 15:53:36] - Ação: Peso médio: 69.125
-[13/04/2026 15:53:36] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:53:36] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 15:53:36] - Ação: Classificação IMC: Peso normal
-[13/04/2026 15:53:36] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 15:53:36] - Ação: Conexão encerrada
-[13/04/2026 16:10:41] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 16:10:45] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 16:10:45] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:10:45] - Ação: IMC médio calculado: 24.238550587894
-[13/04/2026 16:10:45] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:10:45] - Ação: Percentual de IMC calculado
-[13/04/2026 16:10:45] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:10:45] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:10:45] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:10:45] - Ação: Lista de IMC de todos os participantes gerada
-[13/04/2026 16:10:45] - Ação: Conexão encerrada
-[13/04/2026 16:17:35] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 16:17:35] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:17:35] - Ação: IMC médio calculado: 24.238550587894
-[13/04/2026 16:17:35] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:17:35] - Ação: Percentual de IMC calculado
-[13/04/2026 16:17:35] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:17:35] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:17:35] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:17:35] - Ação: Lista de IMC de todos os participantes gerada
-[13/04/2026 16:17:35] - Ação: Conexão encerrada
-[13/04/2026 16:18:54] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 16:19:31] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 16:19:31] - Ação: Maior idade encontrada: 70
-[13/04/2026 16:19:31] - Ação: Maior idade encontrada: 70
-[13/04/2026 16:19:31] - Ação: Nome com maior idade: teste pessoa velha
-[13/04/2026 16:19:31] - Ação: Menor idade encontrada: 18
-[13/04/2026 16:19:31] - Ação: Menor idade encontrada: 18
-[13/04/2026 16:19:31] - Ação: Nome com menor idade: teste fora obesidade
-[13/04/2026 16:19:31] - Ação: Menor idade encontrada: 18
-[13/04/2026 16:19:31] - Ação: Menor altura encontrada: 1.66
-[13/04/2026 16:19:31] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:19:31] - Ação: Idade média calculada: 43.5
-[13/04/2026 16:19:31] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:19:31] - Ação: Idade média calculada: 43.5
-[13/04/2026 16:19:31] - Ação: Quantidade acima da média: 2
-[13/04/2026 16:19:31] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:19:31] - Ação: Idade média calculada: 43.5
-[13/04/2026 16:19:31] - Ação: Quantidade abaixo da média: 2
-[13/04/2026 16:19:31] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:19:31] - Ação: Idade média calculada: 43.5
-[13/04/2026 16:19:31] - Ação: Busca de nomes acima da média realizada
-[13/04/2026 16:19:31] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:19:31] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:19:31] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:19:31] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:19:31] - Ação: Top 3 maiores idades gerado
-[13/04/2026 16:19:31] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:19:31] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:19:31] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:19:31] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:19:31] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:19:31] - Ação: Top 5 menores idades gerado
-[13/04/2026 16:19:31] - Ação: Conexão encerrada
-[13/04/2026 16:19:51] - Ação: SUCESSO - Conexão estabelecida
-[13/04/2026 16:19:51] - Ação: Maior peso: 120
-[13/04/2026 16:19:51] - Ação: Menor peso: 30
-[13/04/2026 16:19:51] - Ação: Peso médio: 69.125
-[13/04/2026 16:19:51] - Ação: SUCESSO - Consulta geral executada
-[13/04/2026 16:19:51] - Ação: Cálculo IMC realizado: 43.547684714763
-[13/04/2026 16:19:51] - Ação: Classificação IMC: Obesidade III
-[13/04/2026 16:19:51] - Ação: Cálculo IMC realizado: 7.5
-[13/04/2026 16:19:51] - Ação: Classificação IMC: Abaixo do peso
-[13/04/2026 16:19:51] - Ação: Cálculo IMC realizado: 21.955291043693
-[13/04/2026 16:19:51] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:19:51] - Ação: Cálculo IMC realizado: 23.951226593119
-[13/04/2026 16:19:51] - Ação: Classificação IMC: Peso normal
-[13/04/2026 16:19:51] - Ação: Lista de pessoas fora do IMC normal gerada
-[13/04/2026 16:19:51] - Ação: Conexão encerrada
+[14/04/2026 11:42:10] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:42:10] - Ação: SUCESSO - Inserção: Marcello Hepp
+[14/04/2026 11:42:10] - Ação: Conexão encerrada
+[14/04/2026 11:42:22] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:42:23] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:42:23] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:42:39] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:42:41] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:42:41] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:42:41] - Ação: IMC médio calculado: 25.008817998405
+[14/04/2026 11:42:41] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:42:41] - Ação: Percentual de IMC calculado
+[14/04/2026 11:42:41] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:42:41] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:42:41] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:42:41] - Ação: Lista de IMC de todos os participantes gerada
+[14/04/2026 11:42:41] - Ação: Conexão encerrada
+[14/04/2026 11:43:24] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:43:24] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:43:24] - Ação: IMC médio calculado: 25.008817998405
+[14/04/2026 11:43:24] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:43:24] - Ação: Percentual de IMC calculado
+[14/04/2026 11:43:24] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:43:24] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:43:24] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:43:24] - Ação: Lista de IMC de todos os participantes gerada
+[14/04/2026 11:43:24] - Ação: Conexão encerrada
+[14/04/2026 11:44:01] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:02] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:02] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:03] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:15] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:15] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:16] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:16] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:44:16] - Ação: IMC médio calculado: 25.008817998405
+[14/04/2026 11:44:16] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:44:16] - Ação: Percentual de IMC calculado
+[14/04/2026 11:44:16] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:16] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:44:16] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:44:16] - Ação: Lista de IMC de todos os participantes gerada
+[14/04/2026 11:44:16] - Ação: Conexão encerrada
+[14/04/2026 11:44:19] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:20] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:24] - Ação: SUCESSO - Conexão estabelecida
+[14/04/2026 11:44:24] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:44:24] - Ação: IMC médio calculado: 25.008817998405
+[14/04/2026 11:44:24] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:44:24] - Ação: Percentual de IMC calculado
+[14/04/2026 11:44:24] - Ação: SUCESSO - Consulta geral executada
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 43.547684714763
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Obesidade III
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 7.5
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Abaixo do peso
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 21.955291043693
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 23.951226593119
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Peso normal
+[14/04/2026 11:44:24] - Ação: Cálculo IMC realizado: 28.089887640449
+[14/04/2026 11:44:24] - Ação: Classificação IMC: Sobrepeso
+[14/04/2026 11:44:24] - Ação: Lista de IMC de todos os participantes gerada
+[14/04/2026 11:44:24] - Ação: Conexão encerrada

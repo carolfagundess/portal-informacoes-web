@@ -38,31 +38,31 @@ include "html/cabecalho.php";
                     <div class="mb-3">
                         <label class="form-label fw-bold text-secondary">Nome:</label>
                         <input type="text" class="form-control form-control-lg" name="indentificadorNome"
-                            value="<?= $nome ?>">
+                            value="<?= $nome ?>" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-bold text-secondary">Sobrenome:</label>
                         <input type="text" class="form-control form-control-lg" name="indentificadorSobrenome"
-                            value="<?= $sobrenome ?>">
+                            value="<?= $sobrenome ?>" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label fw-bold text-secondary">Idade:</label>
                         <input type="number" class="form-control form-control-lg" name="indentificadorIdade"
-                            value="<?= $idade ?>">
+                            value="<?= $idade ?>" required min="1">
                     </div>
 
                     <div class="row g-3 mb-4">
                         <div class="col-md-6">
                             <label class="form-label fw-bold text-secondary">Peso (kg):</label>
-                            <input type="text" class="form-control form-control-lg" name="indentificadorPeso"
-                                value="<?= $peso ?>" placeholder="Ex: 60.5">
+                            <input type="number" step="0.01" class="form-control form-control-lg" name="indentificadorPeso"
+                                value="<?= $peso ?>" placeholder="Ex: 60.5" required min="0.1">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label fw-bold text-secondary">Altura (m):</label>
-                            <input type="text" class="form-control form-control-lg" name="indentificadorAltura"
-                                value="<?= $altura ?>" placeholder="Ex: 1.70">
+                            <input type="number" step="0.01" class="form-control form-control-lg" name="indentificadorAltura"
+                                value="<?= $altura ?>" placeholder="Ex: 1.70" required min="0.1">
                         </div>
                     </div>
 

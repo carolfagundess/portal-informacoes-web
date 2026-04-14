@@ -17,44 +17,64 @@ function conectar(): mysqli
 
 function inserir(mysqli $conexao, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
 {
-    $comandoSQL = "INSERT INTO imc (nome, sobrenome, idade, peso, altura) 
-                   VALUES ('$nome', '$sobrenome', $idade, $peso, $altura)";
+    $comandoSQL = "INSERT INTO imc (nome, sobrenome, idade, peso, altura) VALUES (?, ?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conexao, $comandoSQL);
 
-    $retornoBanco = mysqli_query($conexao, $comandoSQL);
+    if (!$stmt) {
+        registrarLog("ERRO - Preparação da Inserção: {$nome} {$sobrenome} | Erro: " . mysqli_error($conexao));
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssidd", $nome, $sobrenome, $idade, $peso, $altura);
+    $retornoBanco = mysqli_stmt_execute($stmt);
 
     if ($retornoBanco) {
         registrarLog("SUCESSO - Inserção: {$nome} {$sobrenome}");
         return true;
     } else {
-        registrarLog("ERRO - Inserção: {$nome} {$sobrenome} | Erro: " . mysqli_error($conexao));
+        registrarLog("ERRO - Inserção: {$nome} {$sobrenome} | Erro: " . mysqli_stmt_error($stmt));
         return false;
     }
 }
 
 function excluir(mysqli $conexao, int $id): bool
 {
-    $comandoSQL = "DELETE FROM imc WHERE idpessoa = $id";
+    $comandoSQL = "DELETE FROM imc WHERE idpessoa = ?";
+    $stmt = mysqli_prepare($conexao, $comandoSQL);
 
-    if (mysqli_query($conexao, $comandoSQL)) {
+    if (!$stmt) {
+        registrarLog("ERRO - Preparação da Exclusão ID {$id} | Erro: " . mysqli_error($conexao));
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    
+    if (mysqli_stmt_execute($stmt)) {
         registrarLog("SUCESSO - Exclusão ID {$id}");
         return true;
     } else {
-        registrarLog("ERRO - Exclusão ID {$id} | Erro: " . mysqli_error($conexao));
+        registrarLog("ERRO - Exclusão ID {$id} | Erro: " . mysqli_stmt_error($stmt));
         return false;
     }
 }
 
 function atualizar(mysqli $conexao, int $id, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
 {
-    $comandoSQL = "UPDATE imc 
-                   SET nome='$nome', sobrenome='$sobrenome', idade=$idade, peso=$peso, altura=$altura 
-                   WHERE idpessoa=$id";
+    $comandoSQL = "UPDATE imc SET nome=?, sobrenome=?, idade=?, peso=?, altura=? WHERE idpessoa=?";
+    $stmt = mysqli_prepare($conexao, $comandoSQL);
 
-    if (mysqli_query($conexao, $comandoSQL)) {
+    if (!$stmt) {
+        registrarLog("ERRO - Preparação da Atualização ID {$id} | Erro: " . mysqli_error($conexao));
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssiddi", $nome, $sobrenome, $idade, $peso, $altura, $id);
+
+    if (mysqli_stmt_execute($stmt)) {
         registrarLog("SUCESSO - Atualização ID {$id}");
         return true;
     } else {
-        registrarLog("ERRO - Atualização ID {$id} | Erro: " . mysqli_error($conexao));
+        registrarLog("ERRO - Atualização ID {$id} | Erro: " . mysqli_stmt_error($stmt));
         return false;
     }
 }
@@ -82,11 +102,20 @@ function consultar(mysqli $conexao): array
 
 function consultarPorId(mysqli $conexao, int $id): ?array
 {
-    $comandoSQL = "SELECT * FROM imc WHERE idpessoa = $id";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL);
+    $comandoSQL = "SELECT * FROM imc WHERE idpessoa = ?";
+    $stmt = mysqli_prepare($conexao, $comandoSQL);
+
+    if (!$stmt) {
+        registrarLog("ERRO - Preparação da Consulta ID {$id} | Erro: " . mysqli_error($conexao));
+        return null;
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $retornoBanco = mysqli_stmt_get_result($stmt);
 
     if (!$retornoBanco) {
-        registrarLog("ERRO - Consulta ID {$id} | Erro: " . mysqli_error($conexao));
+        registrarLog("ERRO - Consulta ID {$id} | Erro: " . mysqli_stmt_error($stmt));
         return null;
     }
 
@@ -97,6 +126,10 @@ function consultarPorId(mysqli $conexao, int $id): ?array
 
 function calcularIMC(float $peso, float $altura): float
 {
+    if ($altura <= 0) {
+        registrarLog("ERRO - Cálculo IMC: Altura inválida ou zero.");
+        return 0;
+    }
     $imc = $peso / ($altura * $altura);
     registrarLog("Cálculo IMC realizado: {$imc}");
     return $imc;

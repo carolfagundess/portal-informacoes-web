@@ -53,7 +53,9 @@ include "html/cabecalho.php";
 
             </table>
         </div>
-
+        <div class="text-center mt-5">
+            <a href="painelAdmin.php" class="btn btn-outline-dark px-4 py-2 fw-bold">Voltar ao Painel Admin</a>
+        </div>
     </div>
 </div>
 
