@@ -1,99 +1,123 @@
 <?php
 //FUNCOES TIPADAS 
-function conectar(): mysqli
+function conectar(): PDO
 {
     include "conexao-bd.php";
 
-    $conexao = mysqli_connect($localServidor, $usuario, $senha, $nomeBaseDados);
+    try {
+        $dsn = "mysql:host=$localServidor;dbname=$nomeBaseDados;charset=utf8mb4";
+        $conexao = new PDO($dsn, $usuario, $senha);
 
-    if (!$conexao) {
-        registrarLog("ERRO - Conexão falhou: " . mysqli_connect_error());
-        die("Conexão falhou");
+        $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        registrarLog("SUCESSO - Conexão PDO");
+        return $conexao;
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Conexão: " . $e->getMessage());
+        die("Erro na conexão");
     }
-
-    registrarLog("SUCESSO - Conexão estabelecida");
-    return $conexao;
 }
 
-function inserir(mysqli $conexao, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
+function inserir(PDO $conexao, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
 {
-    $comandoSQL = "INSERT INTO imc (nome, sobrenome, idade, peso, altura) 
-                   VALUES ('$nome', '$sobrenome', $idade, $peso, $altura)";
+    try {
+        $sql = "INSERT INTO imc (nome, sobrenome, idade, peso, altura)
+                VALUES (:nome, :sobrenome, :idade, :peso, :altura)";
 
-    $retornoBanco = mysqli_query($conexao, $comandoSQL);
+        $stmt = $conexao->prepare($sql);
 
-    if ($retornoBanco) {
-        registrarLog("SUCESSO - Inserção: {$nome} {$sobrenome}");
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':sobrenome', $sobrenome);
+        $stmt->bindParam(':idade', $idade);
+        $stmt->bindParam(':peso', $peso);
+        $stmt->bindParam(':altura', $altura);
+
+        $stmt->execute();
+
+        registrarLog("SUCESSO - Inserção");
         return true;
-    } else {
-        registrarLog("ERRO - Inserção: {$nome} {$sobrenome} | Erro: " . mysqli_error($conexao));
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Inserção: " . $e->getMessage());
         return false;
     }
 }
 
-function excluir(mysqli $conexao, int $id): bool
+function excluir(PDO $conexao, int $id): bool
 {
-    $comandoSQL = "DELETE FROM imc WHERE idpessoa = $id";
+    try {
+        $sql = "DELETE FROM imc WHERE idpessoa = :id";
 
-    if (mysqli_query($conexao, $comandoSQL)) {
-        registrarLog("SUCESSO - Exclusão ID {$id}");
-        return true;
-    } else {
-        registrarLog("ERRO - Exclusão ID {$id} | Erro: " . mysqli_error($conexao));
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        return $stmt->rowCount() > 0;
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Exclusão: " . $e->getMessage());
         return false;
     }
 }
 
-function atualizar(mysqli $conexao, int $id, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
+function atualizar(PDO $conexao, int $id, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
 {
-    $comandoSQL = "UPDATE imc 
-                   SET nome='$nome', sobrenome='$sobrenome', idade=$idade, peso=$peso, altura=$altura 
-                   WHERE idpessoa=$id";
+    try {
+        $sql = "UPDATE imc 
+                SET nome = :nome, sobrenome = :sobrenome, idade = :idade, peso = :peso, altura = :altura
+                WHERE idpessoa = :id";
 
-    if (mysqli_query($conexao, $comandoSQL)) {
-        registrarLog("SUCESSO - Atualização ID {$id}");
-        return true;
-    } else {
-        registrarLog("ERRO - Atualização ID {$id} | Erro: " . mysqli_error($conexao));
+        $stmt = $conexao->prepare($sql);
+
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':sobrenome', $sobrenome);
+        $stmt->bindParam(':idade', $idade);
+        $stmt->bindParam(':peso', $peso);
+        $stmt->bindParam(':altura', $altura);
+
+        return $stmt->execute();
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Update: " . $e->getMessage());
         return false;
     }
 }
 
-function consultar(mysqli $conexao): array
+function consultar(PDO $conexao): array
 {
-    $comandoSQL = "SELECT * FROM imc";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL);
+    try {
+        $sql = "SELECT * FROM imc";
+        $stmt = $conexao->query($sql);
 
-    if (!$retornoBanco) {
-        registrarLog("ERRO - Consulta geral | Erro: " . mysqli_error($conexao));
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Consulta: " . $e->getMessage());
         return [];
     }
-
-    registrarLog("SUCESSO - Consulta geral executada");
-
-    $resultados = [];
-
-    while ($registro = mysqli_fetch_assoc($retornoBanco)) {
-        $resultados[] = $registro;
-    }
-
-    return $resultados;
 }
 
-function consultarPorId(mysqli $conexao, int $id): ?array
-{
-    $comandoSQL = "SELECT * FROM imc WHERE idpessoa = $id";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL);
 
-    if (!$retornoBanco) {
-        registrarLog("ERRO - Consulta ID {$id} | Erro: " . mysqli_error($conexao));
+function consultarPorId(PDO $conexao, int $id): ?array
+{
+    try {
+        $sql = "SELECT * FROM imc WHERE idpessoa = :id";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $resultado ?: null;
+
+    } catch (PDOException $e) {
         return null;
     }
-
-    registrarLog("SUCESSO - Consulta ID {$id}");
-
-    return mysqli_num_rows($retornoBanco) > 0 ? mysqli_fetch_assoc($retornoBanco) : null;
 }
+
 
 function calcularIMC(float $peso, float $altura): float
 {
@@ -125,7 +149,7 @@ function classificarIMC(float $imc): string
     }
 }
 
-function percentual(mysqli $conexao): array
+function percentual(PDO $conexao): array
 {
     $dados = consultar($conexao);
 
@@ -163,7 +187,7 @@ function percentual(mysqli $conexao): array
     registrarLog("Percentual de IMC calculado");
     return $classificacoes;
 }
-function imcMedio(mysqli $conexao): float
+function imcMedio(PDO $conexao): float
 {
     $dados = consultar($conexao);
 
@@ -182,67 +206,31 @@ function imcMedio(mysqli $conexao): float
     return $resultado;
 }
 
-function maiorIdade(mysqli $conexao): int
+function maiorIdade(PDO $conexao): int
 {
+    $stmt = $conexao->query("SELECT MAX(idade) as maior FROM imc");
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $comandoSQL = "SELECT * FROM imc";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
-    $maiorIdade = 0;
-
-    while ($registro = mysqli_fetch_array($retornoBanco)) {
-
-        $idadeAtual = $registro['idade'];
-
-        if ($idadeAtual > $maiorIdade) {
-            $maiorIdade = $idadeAtual;
-        }
-
-    }
-
-    registrarLog("Maior idade encontrada: {$maiorIdade}");
-    return $maiorIdade;
+    return $resultado['maior'] ?? 0;
 }
 
-function nomeMaior(mysqli $conexao): string
+function nomeMaior(PDO $conexao): string
 {
+    $stmt = $conexao->query("SELECT nome, sobrenome FROM imc ORDER BY idade DESC LIMIT 1");
+    $registro = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $idadeMaior = maiorIdade($conexao);
-
-    $comandoSQL = "SELECT nome, sobrenome FROM imc WHERE idade = $idadeMaior LIMIT 1";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
-
-    $registro = mysqli_fetch_array($retornoBanco);
-
-    $nome = $registro['nome'] . " " . $registro['sobrenome'];
-    registrarLog("Nome com maior idade: {$nome}");
-    return $nome;
-
+    return $registro ? $registro['nome'] . " " . $registro['sobrenome'] : "";
 }
 
-
-function menorIdade(mysqli $conexao): int
+function menorIdade(PDO $conexao): int
 {
+    $stmt = $conexao->query("SELECT MIN(idade) as menor FROM imc");
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $comandoSQL = "SELECT * FROM imc";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
-    $menorIdade = 999;
-
-    while ($registro = mysqli_fetch_array($retornoBanco)) {
-
-        $idadeAtual = $registro['idade'];
-
-        if ($idadeAtual < $menorIdade) {
-            $menorIdade = $idadeAtual;
-        }
-
-    }
-
-    registrarLog("Menor idade encontrada: {$menorIdade}");
-    return $menorIdade;
-
+    return $resultado['menor'] ?? 0;
 }
 
-function menorAltura(mysqli $conexao): float
+function menorAltura(PDO $conexao): float
 {
     $idadeMaisNova = menorIdade($conexao);
 
@@ -254,7 +242,7 @@ function menorAltura(mysqli $conexao): float
     return $registro['altura'];
 }
 
-function menorNome(mysqli $conexao): string
+function menorNome(PDO $conexao): string
 {
 
     $idadeMaisNova = menorIdade($conexao);
@@ -270,7 +258,7 @@ function menorNome(mysqli $conexao): string
 
 }
 
-function idadeMedia(mysqli $conexao): float
+function idadeMedia(PDO $conexao): float
 {
 
     $dados = consultar($conexao);
@@ -292,42 +280,39 @@ function idadeMedia(mysqli $conexao): float
 }
 
 
-function nomesAcimaMedia(mysqli $conexao): array
+function nomesAcimaMedia(PDO $conexao): array
 {
+    $media = idadeMedia($conexao);
 
-    $mediaIdades = idadeMedia($conexao);
+    $stmt = $conexao->prepare("SELECT nome, sobrenome FROM imc WHERE idade > :media");
+    $stmt->bindParam(':media', $media);
+    $stmt->execute();
+
+    $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     $nomes = [];
 
-    $comandoSQL = "SELECT nome, sobrenome FROM imc WHERE idade > $mediaIdades";
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
-
-    while ($registro = mysqli_fetch_array($retornoBanco)) {
-        $nomes[] = $registro['nome'] . " " . $registro['sobrenome'] . ", ";
+    foreach ($dados as $p) {
+        $nomes[] = $p['nome'] . " " . $p['sobrenome'];
     }
 
-    registrarLog("Busca de nomes acima da média realizada");
     return $nomes;
 }
 
-function quantidadeAcimaMedia(mysqli $conexao): int
+function quantidadeAcimaMedia(PDO $conexao): int
 {
+    $media = idadeMedia($conexao);
 
-    $quantidadeNomes = 0;
+    $stmt = $conexao->prepare("SELECT COUNT(*) as total FROM imc WHERE idade > :media");
+    $stmt->bindParam(':media', $media);
+    $stmt->execute();
 
-    $mediaIdades = idadeMedia($conexao);
-    $comandoSQL = "SELECT idpessoa FROM imc WHERE idade > $mediaIdades";
+    $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
-
-    while ($registro = mysqli_fetch_array($retornoBanco)) {
-        $quantidadeNomes++;
-    }
-
-    registrarLog("Quantidade acima da média: {$quantidadeNomes}");
-    return $quantidadeNomes;
+    return $resultado['total'] ?? 0;
 }
 
-function quantidadeAbaixoMedia(mysqli $conexao): int
+function quantidadeAbaixoMedia(PDO $conexao): int
 {
 
     $quantidadeNomes = 0;
@@ -345,7 +330,7 @@ function quantidadeAbaixoMedia(mysqli $conexao): int
     return $quantidadeNomes;
 }
 
-function maiorPeso(mysqli $conexao): float
+function maiorPeso(PDO $conexao): float
 {
     $comandoSQL = "SELECT MAX(peso) as maior_peso FROM imc";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
@@ -354,7 +339,7 @@ function maiorPeso(mysqli $conexao): float
     return $registro['maior_peso'] !== null ? (float) $registro['maior_peso'] : 0.0;
 }
 
-function menorPeso(mysqli $conexao): float
+function menorPeso(PDO $conexao): float
 {
     $comandoSQL = "SELECT MIN(peso) as menor_peso FROM imc";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
@@ -363,7 +348,7 @@ function menorPeso(mysqli $conexao): float
     return $registro['menor_peso'] !== null ? $registro['menor_peso'] : 0.0;
 }
 
-function pesoMedio(mysqli $conexao): float
+function pesoMedio(PDO $conexao): float
 {
     $comandoSQL = "SELECT AVG(peso) as peso_medio FROM imc";
     $retornoBanco = mysqli_query($conexao, $comandoSQL) or die(mysqli_error($conexao));
@@ -372,7 +357,7 @@ function pesoMedio(mysqli $conexao): float
     return $registro['peso_medio'] !== null ? $registro['peso_medio'] : 0.0;
 }
 
-function pessoasForaDoImcNormal(mysqli $conexao): array
+function pessoasForaDoImcNormal(PDO $conexao): array
 {
     $dados = consultar($conexao);
     $pessoasForaNormal = [];
@@ -412,7 +397,7 @@ function pessoasForaDoImcNormal(mysqli $conexao): array
     return $pessoasForaNormal;
 }
 
-function tresMaioresIdades(mysqli $conexao): array
+function tresMaioresIdades(PDO $conexao): array
 {
     $dados = consultar($conexao);
 
@@ -436,7 +421,7 @@ function tresMaioresIdades(mysqli $conexao): array
     return $resultado;
 }
 
-function cincoMenoresIdades(mysqli $conexao): array
+function cincoMenoresIdades(PDO $conexao): array
 {
     $dados = consultar($conexao);
 
@@ -460,7 +445,7 @@ function cincoMenoresIdades(mysqli $conexao): array
     return $resultado;
 }
 
-function imcTodosParticipantes(mysqli $conexao): array
+function imcTodosParticipantes(PDO $conexao): array
 {
     $dados = consultar($conexao);
     $resultado = [];
@@ -484,9 +469,7 @@ function imcTodosParticipantes(mysqli $conexao): array
 
 function desconectar($conexao)
 {
-    registrarLog("Conexão encerrada");
-
-    return mysqli_close($conexao);
+    return null;
 }
 
 function registrarLog(string $acao): void
@@ -498,3 +481,260 @@ function registrarLog(string $acao): void
     $mensagem = "[$dataHora] - Ação: $acao" . PHP_EOL;
     file_put_contents($arquivoLog, $mensagem, FILE_APPEND);
 }
+
+/*
+
+O código a baixo é para ser a versão PDO só não vou conseguir testar 
+
+
+<?php
+// FUNCOES TIPADAS 
+
+function conectar(): PDO
+{
+    include "conexao-bd.php";
+
+    try {
+        $dsn = "mysql:host=$localServidor;dbname=$nomeBaseDados;charset=utf8mb4";
+        $conexao = new PDO($dsn, $usuario, $senha);
+        $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        registrarLog("SUCESSO - Conexão PDO");
+        return $conexao;
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Conexão: " . $e->getMessage());
+        die("Erro na conexão");
+    }
+}
+
+function inserir(PDO $conexao, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
+{
+    try {
+        $sql = "INSERT INTO imc (nome, sobrenome, idade, peso, altura)
+                VALUES (:nome, :sobrenome, :idade, :peso, :altura)";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':sobrenome', $sobrenome);
+        $stmt->bindParam(':idade', $idade);
+        $stmt->bindParam(':peso', $peso);
+        $stmt->bindParam(':altura', $altura);
+
+        $stmt->execute();
+
+        registrarLog("SUCESSO - Inserção");
+        return true;
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Inserção: " . $e->getMessage());
+        return false;
+    }
+}
+
+function excluir(PDO $conexao, int $id): bool
+{
+    try {
+        $stmt = $conexao->prepare("DELETE FROM imc WHERE idpessoa = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        return $stmt->rowCount() > 0;
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Exclusão: " . $e->getMessage());
+        return false;
+    }
+}
+
+function atualizar(PDO $conexao, int $id, string $nome, string $sobrenome, int $idade, float $peso, float $altura): bool
+{
+    try {
+        $sql = "UPDATE imc 
+                SET nome = :nome, sobrenome = :sobrenome, idade = :idade, peso = :peso, altura = :altura
+                WHERE idpessoa = :id";
+
+        $stmt = $conexao->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':sobrenome', $sobrenome);
+        $stmt->bindParam(':idade', $idade);
+        $stmt->bindParam(':peso', $peso);
+        $stmt->bindParam(':altura', $altura);
+
+        return $stmt->execute();
+
+    } catch (PDOException $e) {
+        registrarLog("ERRO - Update: " . $e->getMessage());
+        return false;
+    }
+}
+
+function consultar(PDO $conexao): array
+{
+    try {
+        $stmt = $conexao->query("SELECT * FROM imc");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        return [];
+    }
+}
+
+function consultarPorId(PDO $conexao, int $id): ?array
+{
+    try {
+        $stmt = $conexao->prepare("SELECT * FROM imc WHERE idpessoa = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        registrarLog("Consulta por ID {$id}");
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+
+    } catch (PDOException $e) {
+        return null;
+    }
+}
+
+function calcularIMC(float $peso, float $altura): float
+{
+    return $peso / ($altura * $altura);
+}
+
+function classificarIMC(float $imc): string
+{
+    if ($imc <= 18.5) return "Abaixo do peso";
+    if ($imc <= 24.9) return "Normal";
+    if ($imc <= 29.9) return "Sobrepeso";
+    if ($imc <= 34.9) return "Obesidade I";
+    if ($imc <= 39.9) return "Obesidade II";
+    return "Obesidade III";
+}
+
+function percentual(PDO $conexao): array
+{
+    $dados = consultar($conexao);
+    $total = count($dados);
+
+    if ($total == 0) return [];
+
+    $classificacoes = [
+        "Abaixo do peso" => 0,
+        "Normal" => 0,
+        "Sobrepeso" => 0,
+        "Obesidade I" => 0,
+        "Obesidade II" => 0,
+        "Obesidade III" => 0
+    ];
+
+    foreach ($dados as $p) {
+        $classe = classificarIMC(calcularIMC($p['peso'], $p['altura']));
+        $classificacoes[$classe]++;
+    }
+
+    foreach ($classificacoes as $k => $v) {
+        $classificacoes[$k] = ($v / $total) * 100;
+    }
+
+    return $classificacoes;
+}
+
+function imcMedio(PDO $conexao): float
+{
+    $dados = consultar($conexao);
+    $total = count($dados);
+
+    if ($total == 0) return 0;
+
+    $soma = 0;
+    foreach ($dados as $p) {
+        $soma += calcularIMC($p['peso'], $p['altura']);
+    }
+
+    return $soma / $total;
+}
+
+function maiorIdade(PDO $conexao): int
+{
+    $r = $conexao->query("SELECT MAX(idade) as v FROM imc")->fetch(PDO::FETCH_ASSOC);
+    return $r['v'] ?? 0;
+}
+
+function menorIdade(PDO $conexao): int
+{
+    $r = $conexao->query("SELECT MIN(idade) as v FROM imc")->fetch(PDO::FETCH_ASSOC);
+    return $r['v'] ?? 0;
+}
+
+function nomeMaior(PDO $conexao): string
+{
+    $r = $conexao->query("SELECT nome, sobrenome FROM imc ORDER BY idade DESC LIMIT 1")->fetch(PDO::FETCH_ASSOC);
+    return $r ? $r['nome']." ".$r['sobrenome'] : "";
+}
+
+function menorNome(PDO $conexao): string
+{
+    $r = $conexao->query("SELECT nome, sobrenome FROM imc ORDER BY idade ASC LIMIT 1")->fetch(PDO::FETCH_ASSOC);
+    return $r ? $r['nome']." ".$r['sobrenome'] : "";
+}
+
+function menorAltura(PDO $conexao): float
+{
+    $r = $conexao->query("SELECT altura FROM imc ORDER BY idade ASC LIMIT 1")->fetch(PDO::FETCH_ASSOC);
+    return $r['altura'] ?? 0;
+}
+
+function idadeMedia(PDO $conexao): float
+{
+    $r = $conexao->query("SELECT AVG(idade) as v FROM imc")->fetch(PDO::FETCH_ASSOC);
+    return $r['v'] ?? 0;
+}
+
+function quantidadeAcimaMedia(PDO $conexao): int
+{
+    $media = idadeMedia($conexao);
+    $stmt = $conexao->prepare("SELECT COUNT(*) as v FROM imc WHERE idade > :m");
+    $stmt->bindParam(':m', $media);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC)['v'] ?? 0;
+}
+
+function quantidadeAbaixoMedia(PDO $conexao): int
+{
+    $media = idadeMedia($conexao);
+    $stmt = $conexao->prepare("SELECT COUNT(*) as v FROM imc WHERE idade < :m");
+    $stmt->bindParam(':m', $media);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC)['v'] ?? 0;
+}
+
+function maiorPeso(PDO $conexao): float
+{
+    return $conexao->query("SELECT MAX(peso) as v FROM imc")->fetch(PDO::FETCH_ASSOC)['v'] ?? 0;
+}
+
+function menorPeso(PDO $conexao): float
+{
+    return $conexao->query("SELECT MIN(peso) as v FROM imc")->fetch(PDO::FETCH_ASSOC)['v'] ?? 0;
+}
+
+function pesoMedio(PDO $conexao): float
+{
+    return $conexao->query("SELECT AVG(peso) as v FROM imc")->fetch(PDO::FETCH_ASSOC)['v'] ?? 0;
+}
+
+function desconectar($conexao)
+{
+    return null;
+}
+
+function registrarLog(string $acao): void
+{
+    date_default_timezone_set('America/Sao_Paulo');
+
+    $arquivoLog = __DIR__ . '/../log_operacoes.txt';
+    $dataHora = date('d/m/Y H:i:s');
+    $mensagem = "[$dataHora] - $acao" . PHP_EOL;
+
+    file_put_contents($arquivoLog, $mensagem, FILE_APPEND);
+}
+*/
