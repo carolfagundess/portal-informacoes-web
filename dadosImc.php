@@ -13,7 +13,7 @@ include "html/cabecalho.php";
         $imc_medio = imcMedio($conexao);
         echo "<p class='fs-5'><strong>IMC Médio do grupo:</strong> " . number_format($imc_medio, 2, ',', '.') . "</p>";
 
-        $percentuais = percentual($conexao);
+        $percentuais = obterTodosPercentuais($conexao);
         echo "<h3 class='mt-4'>Percentuais por classificação de IMC:</h3>";
         if (!empty($percentuais)) {
             echo "<ul class='list-group mb-4 text-dark'>";

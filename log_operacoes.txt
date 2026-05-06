@@ -145,3 +145,24 @@
 [14/04/2026 11:44:24] - Ação: Classificação IMC: Sobrepeso
 [14/04/2026 11:44:24] - Ação: Lista de IMC de todos os participantes gerada
 [14/04/2026 11:44:24] - Ação: Conexão encerrada
+[14/04/2026 12:37:29] - Ação: SUCESSO - Conexão estabelecida
+[04/05/2026 21:08:31] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:08:56] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:09:27] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:09:28] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:10:13] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:10:23] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:10:23] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:14:04] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:14:05] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:14:06] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:23:42] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:23:43] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:23:44] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:23:45] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:24:22] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:24:25] - Ação: SUCESSO - Conexão PDO estabelecida
+[04/05/2026 21:24:28] - Ação: SUCESSO - Conexão PDO estabelecida
+[05/05/2026 03:05:58] Ação: INSERT - Nome: teste 4 teste denovo, Idade: 12, Peso: 45, Altura: 1.45
+[05/05/2026 03:06:11] Ação: UPDATE - ID: 17, Nome: teste 4 teste denovo, Idade: 15, Peso: 45, Altura: 1.45
+[05/05/2026 03:06:17] Ação: DELETE - ID: 17

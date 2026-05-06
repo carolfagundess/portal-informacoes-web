@@ -16,7 +16,7 @@ $imc_medio = imcMedio($conexao);
 echo "<p><strong>IMC Médio do grupo:</strong> " . number_format($imc_medio, 2, ',', '.') . "</p>";
 
 // Quais os percentuais?
-$percentuais = percentual($conexao);
+$percentuais = obterTodosPercentuais($conexao);
 echo "<h3>Percentuais por classificação de IMC:</h3>";
 if (!empty($percentuais)) {
     echo "<ul>";
@@ -70,8 +70,8 @@ $nomesAcima = nomesAcimaMedia($conexao);
 
 echo "<p><strong>Qtd pessoas acima da idade média:</strong> {$qtdAcima}</p>";
 if (!empty($nomesAcima)) {
-    // A função nomesAcimaMedia() retorna os nomes já com ", " no final
-    echo "<p><strong>Nome(s) acima da idade média:</strong> " . rtrim(implode("", $nomesAcima), ", ") . "</p>";
+    $listaNomes = array_map(function($p) { return $p['nome'] . " " . $p['sobrenome']; }, $nomesAcima);
+    echo "<p><strong>Nome(s) acima da idade média:</strong> " . implode(", ", $listaNomes) . "</p>";
 }
 echo "<p><strong>Qtd pessoas abaixo da idade média:</strong> {$qtdAbaixo}</p>";
 

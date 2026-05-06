@@ -41,7 +41,8 @@ include "html/cabecalho.php";
                         
                         echo "<p class='mb-2'><strong>Acima da média:</strong> {$qtdAcima} pessoa(s)</p>";
                         if (!empty($nomesAcima)) {
-                            echo "<p class='mb-2 small'><strong>Nome(s):</strong> " . rtrim(implode("", $nomesAcima), ", ") . "</p>";
+                            $listaNomes = array_map(function($p) { return $p['nome'] . " " . $p['sobrenome']; }, $nomesAcima);
+                            echo "<p class='mb-2 small'><strong>Nome(s):</strong> " . implode(", ", $listaNomes) . "</p>";
                         }
                         echo "<p class='mb-0'><strong>Abaixo da média:</strong> {$qtdAbaixo} pessoa(s)</p>";
                         ?>
